@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           unzip -o DigitScan-1.zip -d DigitScan/
-          rm подарки.zip
+          rm DigitScan-1.zip
           git config user.name "vlad-byte"
           git config user.email "vl44el@yandex.ru"
           git add .
