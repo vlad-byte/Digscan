@@ -4,12 +4,13 @@ jobs:
   unzip:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - run: |
-          unzip -o DigitScan-1.zip -d .
-          rm DigitScan-1.zip
+          unzip -o DigitScan-1.zip -d . -x ".github/*"
+          rm -f DigitScan-1.zip
+          rm -rf .github/workflows/build.yml
           git config user.name "vlad-byte"
           git config user.email "vl44el@yandex.ru"
           git add -A
-          git commit -m "Распаковал архив"
+          git commit -m "Распаковал архив" || echo "Нечего коммитить"
           git push
