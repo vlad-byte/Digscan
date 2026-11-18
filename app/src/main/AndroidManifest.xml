@@ -9,6 +9,7 @@
     <application
         android:name=".DigitScanApp"
         android:allowBackup="false"
+        android:largeHeap="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.DigitScan">
