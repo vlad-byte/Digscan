@@ -120,7 +120,7 @@ fun SessionDetailScreen(
                     modifier = Modifier.padding(top = 8.dp)
                 )
             }
-            items(result, key = { it.id }) { line ->
+            items(result, key = { "line-${it.id}" }) { line ->
                 Row {
                     Text(
                         "${line.position + 1}.",
@@ -137,7 +137,7 @@ fun SessionDetailScreen(
                     modifier = Modifier.padding(top = 16.dp)
                 )
             }
-            items(photos.chunked(3), key = { it.first().id }) { rowPhotos ->
+            items(photos.chunked(3), key = { "photos-${it.first().id}" }) { rowPhotos ->
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     rowPhotos.forEach { photo ->
                         Column(Modifier.weight(1f)) {
