@@ -6,10 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          unzip -o DigitScan-1.zip -d /
+          unzip -o DigitScan-1.zip -d .
           rm DigitScan-1.zip
           git config user.name "vlad-byte"
           git config user.email "vl44el@yandex.ru"
-          git add .
+          git add -A
           git commit -m "Распаковал архив"
           git push
