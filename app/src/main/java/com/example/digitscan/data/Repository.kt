@@ -13,7 +13,7 @@ class Repository(
     private val db: AppDatabase
 ) {
     private val dao = db.dao()
-    private val ocr = OcrEngine(context)
+    private val ocr = OcrEngine()
 
     fun observeSummaries() = dao.observeSummaries()
     fun observeSession(id: Long) = dao.observeSession(id)
@@ -59,8 +59,8 @@ class Repository(
                 ocr.recognize(File(photo.filePath))
             } catch (e: CancellationException) {
                 throw e
-            } catch (e: Exception) {
-                "" // не получилось — пользователь введёт вручную
+            } catch (e: Throwable) {
+                "" // не получилось (в т.ч. нехватка памяти) — пользователь введёт вручную
             }
             dao.setPhotoTextIfEmpty(photo.id, text)
         }
